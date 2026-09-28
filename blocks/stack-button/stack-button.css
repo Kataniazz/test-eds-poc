@@ -1,4 +1,4 @@
-/* The outer white card container with rounded edges */
+css/* Card Container */
 .stack-button.block .stack-button-card {
   background-color: #ffffff;
   padding: 2.5rem;
@@ -9,36 +9,63 @@
   margin: 1.5rem auto;
 }
 
-/* The actual clickable pill button */
+/* Base Pill Button Configuration */
 .stack-button.block .stack-pill-button {
-  display: flex;
-  flex-direction: column;
+  position: relative; /* Crucial for absolute positioning of the icon */
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  background-color: #ff4757; /* Custom component brand color */
+  background-color: #ff4757;
   color: #ffffff;
   text-decoration: none;
-  padding: 1rem 3rem;
-  border-radius: 50px; /* Fully rounded edges */
+  padding: 1rem 3.5rem 1rem 2.5rem; /* Extra padding on the right to clear the icon */
+  border-radius: 50px;
   transition: background-color 0.2s ease, transform 0.1s ease;
+  text-align: left;
 }
 
-.stack-button.block .stack-pill-button:hover {
-  background-color: #e84118;
-  transform: translateY(-1px);
+/* Layout for Text when Icon is present */
+.stack-button.block .stack-pill-button.has-icon .text-content {
+  margin-right: 1.5rem; /* Ensures text never overlaps the icon */
 }
 
-/* Typography rules inside the custom button */
 .stack-button.block .text-top {
+  display: block;
   font-size: 1.15rem;
   font-weight: 700;
   line-height: 1.2;
 }
 
 .stack-button.block .text-bottom {
+  display: block;
   font-size: 0.8rem;
   font-weight: 400;
   opacity: 0.9;
   margin-top: 0.25rem;
   letter-spacing: 0.5px;
+}
+
+/* The Far Right Floating Icon Wrapper */
+.stack-button.block .button-icon-wrapper {
+  position: absolute;
+  right: 12px; /* Pulls it directly to the far right inside edge */
+  top: 50%;
+  transform: translateY(-50%); /* Centers it vertically */
+  width: 32px;  /* Control your icon frame size */
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Force the image inside the wrapper to scale cleanly */
+.stack-button.block .button-icon-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Hover Adjustments */
+.stack-button.block .stack-pill-button:hover {
+  background-color: #e84118;
+  transform: translateY(-1px);
 }
