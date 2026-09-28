@@ -323,3 +323,10 @@ main .section.highlight {
   margin: 0;
   padding: 40px 0;
 }
+
+main .section.test {
+  padding: 20px 0;
+  background-color: #F6F2F7;
+  text-align: center;
+  line-height: 1;
+}

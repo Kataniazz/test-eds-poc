@@ -33,9 +33,9 @@ export default function decorate(block) {
       <a href="${buttonUrl}" class="stack-pill-button ${iconHtml ? 'has-icon' : ''}">
         <div class="text-content">
           <span class="text-top">${primaryText}</span>
-          ${secondaryText ? `<span class="text-bottom">\${secondaryText}</span>` : ''}
+          ${secondaryText ? `<span class="text-bottom">${secondaryText}</span>` : ''}
         </div>
-        ${iconHtml ? `<div class="button-icon-wrapper">\${iconHtml}</div>` : ''}
+        ${iconHtml ? `<div class="button-icon-wrapper">${iconHtml}</div>` : ''}
       </a>
     </div>
   `;
