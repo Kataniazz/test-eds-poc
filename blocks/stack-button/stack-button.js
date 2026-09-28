@@ -22,7 +22,6 @@ export default function decorate(block) {
     } else if (label === 'icon') {
       const img = valueCell.querySelector('img');
       if (img) {
-        // Optimize image loading since it's a structural component icon
         img.removeAttribute('loading');
         iconHtml = img.outerHTML;
       }
