@@ -1,0 +1,44 @@
+/* The outer white card container with rounded edges */
+.stack-button.block .stack-button-card {
+  background-color: #ffffff;
+  padding: 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  display: inline-block;
+  text-align: center;
+  margin: 1.5rem auto;
+}
+
+/* The actual clickable pill button */
+.stack-button.block .stack-pill-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #ff4757; /* Custom component brand color */
+  color: #ffffff;
+  text-decoration: none;
+  padding: 1rem 3rem;
+  border-radius: 50px; /* Fully rounded edges */
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.stack-button.block .stack-pill-button:hover {
+  background-color: #e84118;
+  transform: translateY(-1px);
+}
+
+/* Typography rules inside the custom button */
+.stack-button.block .text-top {
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.stack-button.block .text-bottom {
+  font-size: 0.8rem;
+  font-weight: 400;
+  opacity: 0.9;
+  margin-top: 0.25rem;
+  letter-spacing: 0.5px;
+}
