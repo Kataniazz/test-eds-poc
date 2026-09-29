@@ -1,20 +1,50 @@
 footer {
-  background-color: var(--light-color);
-  font-size: var(--body-font-size-xs);
+  color: white;
+  text-align: center;
 }
 
 footer .footer > div {
-  margin: auto;
-  max-width: 1200px;
-  padding: 40px 24px 24px;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
+/* Disclaimer */
+footer .footer p:first-child {
+  max-width: 650px;
+  margin: 0 auto 24px;
+}
+
+/* Cookie + logo row */
+.footer-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+}
+
+footer .footer picture img,
+footer .footer img {
+max-width: 100px;
+height: auto;
+}
+.footer-row img {
+  width: 100%;
+  height: auto;
+}
+
+/* Cookie settings text */
+footer .footer p a,
 footer .footer p {
-  margin: 0;
+  font-size: 14px;
 }
 
-@media (width >= 900px) {
-  footer .footer > div {
-    padding: 40px 32px 24px;
-  }
+/* Logo */
+footer .footer picture img,
+footer .footer img {
+  width: 120px;
+  height: auto;
+}
+
+footer .footer picture {
+margin-left: 8px;
 }

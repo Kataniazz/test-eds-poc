@@ -324,9 +324,48 @@ main .section.highlight {
   padding: 40px 0;
 }
 
+/* ==========================================================================
+   Chat Page Template Layout Stabilization Overrides
+   ========================================================================== */
+
 main .section.test {
   padding: 20px 0;
   background-color: #F6F2F7;
   text-align: center;
   line-height: 1;
+}
+
+/* Target pages carrying our custom chat-page metadata template class */
+body.chat-page {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  min-height: 100vh;
+  overflow: hidden;
+  
+  /* 1. Pull the image path out of the JavaScript variable securely */
+  background-image: var(--page-bg-url);
+  background-position: center center;
+  background-repeat: no-repeat;
+  
+  /* 2. Brand purple matte fill for any empty area beyond the image boundary */
+  background-color: #55005A; 
+  
+  /* 3. Standard screen scales default to cover full responsive window frames */
+  background-size: cover; 
+  background-attachment: fixed;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 4. FIX: On ultra-wide monitors, lock the image width scale so it never stretches */
+@media (min-width: 1920px) {
+  body.chat-page {
+    /* Locks width framework scale to exactly 1920px width and auto-calculates height proportion */
+    background-size: 1920px auto; 
+  }
 }

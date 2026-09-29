@@ -161,10 +161,15 @@ export function decorateMain(main) {
  */
 async function loadEager(doc) {
   document.documentElement.lang = 'en';
-  decorateTemplateAndTheme();
+  decorateTemplateAndTheme(); // Sets up page metadata classes
+  
   const main = doc.querySelector('main');
   if (main) {
     decorateMain(main);
+    
+    // 🚀 FIXED: Execute template styling parameters inside the safe DOM structural lifecycle frame
+    decorateTemplates(doc);
+    
     document.body.classList.add('appear');
     await loadSection(main.querySelector('.section'), waitForFirstImage);
   }
@@ -205,7 +210,6 @@ async function loadLazy(doc) {
  */
 function loadDelayed() {
   import('./consent-check.js');
-  // load anything that can be postponed to the latest here
 }
 
 async function loadPage() {
@@ -215,3 +219,18 @@ async function loadPage() {
 }
 
 loadPage();
+
+// 🚀 FIXED: Highly optimized metadata consumer that avoids redundant background calculation paints
+function decorateTemplates(doc) {
+  const isChatPage = document.body.classList.contains('chat-page');
+  if (!isChatPage) return;
+
+  // Protect against redundant background script asset evaluations
+  if (document.body.getAttribute('data-bg-status') === 'loaded') return;
+
+  const bgMeta = doc.head.querySelector('meta[name="page-background"]');
+  if (bgMeta && bgMeta.content) {
+    document.body.style.setProperty('--page-bg-url', `url(${bgMeta.content})`);
+    document.body.setAttribute('data-bg-status', 'loaded');
+  }
+}
